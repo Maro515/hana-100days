@@ -128,7 +128,7 @@ canvas.chart{ width:100%; height:150px; }
 .rtitleja{ font-size:14px; color:var(--tx2); font-weight:700; margin:6px 0 14px; }
 .teaserbox{ background:var(--bg3); border:1px solid var(--line); border-radius:12px; padding:10px 14px; font-size:13px; line-height:1.7; margin-bottom:18px; color:var(--tx); }
 .teaserbox b{ color:var(--ac-tx); font-size:11px; display:block; margin-bottom:2px; }
-#story{ line-height:2.0; }
+#story{ line-height:2.0; font-size:var(--story-fs,19px); }
 #story p{ margin:0 0 1.15em; }
 #story.serif{ font-family:Georgia,"Times New Roman","Hiragino Mincho ProN",serif; }
 .sent{ border-radius:4px; }
@@ -253,7 +253,117 @@ button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focu
 @media (prefers-reduced-motion: reduce){
   *, *::before, *::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
 }
-@media(min-width:900px){ :root{ --max:720px; } }
+@media(min-width:760px){ :root{ --max:720px; } }
+/* ==================== desktop layout (≥1080px) ==================== */
+@media(min-width:1080px){
+ :root{ --max:900px; --rail:224px; --hdrh:66px; }
+ /* header spans full width, sidebar sits beneath it */
+ #hdr{ z-index:30; }
+ #hdr .wrap{ max-width:none; height:var(--hdrh); padding:0 26px; gap:14px; }
+ #hdr .logo{ font-size:24px; } #hdr .logo small{ font-size:11.5px; letter-spacing:.1em; }
+ #hdr .day{ font-size:14px; padding:7px 15px; }
+ #hdr .gear{ font-size:24px; padding:8px; }
+ /* bottom tab bar → left rail */
+ #tabbar{ top:var(--hdrh); bottom:0; left:0; right:auto; width:var(--rail); border-top:none; border-right:1px solid var(--line); padding-bottom:0; background:var(--bg2); }
+ #tabbar .wrap{ flex-direction:column; align-items:stretch; max-width:none; height:100%; padding:18px 12px; gap:5px; }
+ #tabbar button{ flex:none; flex-direction:row; align-items:center; justify-content:flex-start; gap:13px; padding:13px 15px; border-radius:12px; font-size:15px; text-align:left; transition:background-color var(--dur-1) var(--ease-out); }
+ #tabbar button .icn{ width:23px; height:23px; }
+ #tabbar button.on{ background:color-mix(in srgb, var(--ac) 12%, var(--bg2)); }
+ .tbadge{ position:static; margin-left:auto; font-size:11px; padding:2px 8px; }
+ #main{ padding:30px 0 70px var(--rail); }
+ #main .wrap{ padding:0 30px; }
+ /* typography — desktop scale */
+ .sec-title{ font-size:15px; margin:30px 0 12px; }
+ .card{ border-radius:20px; padding:22px; margin-bottom:18px; }
+ .hero{ padding:32px 30px 30px; }
+ .hero .bigemoji{ font-size:112px; right:14px; }
+ .hero .lvchip{ font-size:13px; padding:4px 13px; }
+ .hero .epno{ font-size:14px; }
+ .hero h2{ font-size:34px; line-height:1.4; margin:6px 0 3px; }
+ .hero .en{ font-size:17px; margin-bottom:12px; }
+ .hero .theme{ font-size:14px; padding:6px 14px; }
+ .hero .teaser{ font-size:16px; line-height:1.9; margin-bottom:16px; }
+ .hero .meta{ font-size:14px; margin-bottom:18px; }
+ .btn{ font-size:18px; padding:15px 34px; }
+ .btn2{ font-size:15px; padding:12px 22px; }
+ .donebanner{ font-size:15px; padding:14px 20px; }
+ .statrow{ gap:16px; margin:20px 0 28px; }
+ .stat{ border-radius:18px; padding:18px 12px; }
+ .stat .v{ font-size:26px; } .stat:first-child .v{ font-size:31px; }
+ .stat .k{ font-size:12.5px; margin-top:4px; }
+ .bar{ height:15px; } .barlabel{ font-size:13px; margin-top:9px; }
+ .pod .en{ font-size:21px; } .pod .ja{ font-size:15px; margin-top:5px; }
+ .spk{ width:46px; height:46px; font-size:21px; }
+ .heat i{ width:17px; height:17px; border-radius:4px; }
+ .trackbar{ gap:14px; margin-bottom:22px; }
+ .trackbar button{ padding:14px 18px; border-radius:16px; }
+ .trackbar button b{ font-size:17px; } .trackbar button span{ font-size:12.5px; margin-top:4px; }
+ .pod2{ font-size:15px; line-height:2; }
+ .nextcard{ padding:18px 22px; border-radius:16px; }
+ .nextcard .l{ font-size:12px; } .nextcard .t{ font-size:19px; margin:5px 0; } .nextcard .z{ font-size:14.5px; }
+ .roadmap{ height:40px; } .roadmap .mk{ font-size:11px; }
+ .wordrow{ font-size:16px; padding:10px 0; } .wordrow .wja{ font-size:14px; }
+ .addbtn{ font-size:13.5px; padding:7px 15px; }
+ /* library — two columns */
+ .lvhead{ margin:32px 0 14px; } .lvhead h3{ font-size:19px; } .lvhead small{ font-size:13.5px; }
+ .lvhead .dot{ width:14px; height:14px; }
+ .eplist{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+ .epcard{ margin-bottom:0; padding:14px 16px; border-radius:16px; gap:14px; }
+ .epcard .em{ font-size:32px; width:44px; }
+ .epcard .tt .ja{ font-size:16.5px; } .epcard .tt .sub{ font-size:12.5px; margin-top:4px; }
+ .epcard .st{ font-size:12.5px; }
+ /* stats */
+ .badges{ grid-template-columns:repeat(auto-fill,minmax(132px,1fr)); gap:12px; }
+ .badge{ padding:16px 10px; border-radius:16px; }
+ .badge .e{ font-size:34px; } .badge .n{ font-size:13.5px; margin-top:6px; } .badge .d{ font-size:11.5px; }
+ .kv{ font-size:15.5px; padding:10px 0; }
+ canvas.chart{ height:210px; } .weekbars{ height:150px; } .weekbars .wb b{ font-size:11px; }
+ /* reader */
+ #rhdr{ padding:14px 26px; gap:12px; }
+ #rhdr .back{ font-size:28px; padding:4px 12px; }
+ #rhdr .info{ font-size:14.5px; } #rhdr .info small{ font-size:12px; margin-top:2px; }
+ #rhdr .timer{ font-size:15px; } #rhdr .fbtn{ font-size:15px; padding:8px 14px; }
+ #rbody .inner{ max-width:760px; padding:44px 32px 70px; }
+ .rtitle{ font-size:36px; } .rtitleja{ font-size:17px; margin:10px 0 22px; }
+ .teaserbox{ font-size:15.5px; padding:14px 20px; border-radius:14px; margin-bottom:26px; }
+ .teaserbox b{ font-size:12.5px; }
+ #story{ font-size:calc(var(--story-fs,19px) * 1.2); line-height:2.05; }
+ #rfoot{ padding:14px 26px; } #rfoot .row{ max-width:760px; gap:14px; }
+ .pctl{ font-size:23px; padding:10px 18px; } #pprog{ font-size:13px; min-width:64px; }
+ select.mini{ font-size:14px; padding:9px 10px; } .shadowtg{ font-size:13px; padding:9px 13px; }
+ /* quiz / phrases / done */
+ .qprog{ font-size:13px; } .qq{ font-size:22px; margin:14px 0 22px; }
+ .qc{ font-size:17.5px; padding:16px 22px; border-radius:16px; margin-bottom:12px; }
+ .phr{ padding:16px 20px; border-radius:16px; margin-bottom:12px; gap:16px; }
+ .phr .t .en{ font-size:19px; } .phr .t .ja{ font-size:14px; margin-top:4px; }
+ .phrk{ font-size:11px; padding:2px 8px; }
+ .donebig{ padding:34px 0 12px; } .donebig .e{ font-size:70px; } .donebig h2{ font-size:31px; }
+ .xprow{ font-size:15.5px; padding:10px 4px; }
+ /* notebook / flashcards / plan */
+ .notecard{ padding:14px 18px; border-radius:16px; gap:14px; }
+ .notecard .en{ font-size:17.5px; } .notecard .ja{ font-size:14px; margin-top:4px; }
+ .tychip{ font-size:11.5px; padding:3px 10px; } .lvpip{ font-size:11.5px; } .xbtn{ font-size:18px; }
+ .ovinner{ max-width:720px; padding:40px 30px 60px; }
+ .ovhead{ padding:14px 26px; } .ovhead .info{ font-size:14.5px; } .ovhead .info small{ font-size:12px; }
+ .ovhead .back{ font-size:28px; } .ovhead .fbtn{ font-size:15px; padding:8px 14px; }
+ .flash{ padding:56px 34px; min-height:330px; border-radius:26px; }
+ .flash .front{ font-size:33px; } .flash .backja{ font-size:27px; } .flash .ex{ font-size:16px; } .flash .hint{ font-size:13px; }
+ .gradebtns{ gap:14px; margin-top:20px; } .gradebtns button{ font-size:18px; padding:17px 0; border-radius:18px; }
+ .planrow{ font-size:14.5px; padding:10px 14px; } .planrow .wk{ width:46px; }
+ .phasecard{ border-left-width:5px; }
+ .searchbox{ font-size:15.5px; padding:12px 17px; }
+ .seg button{ font-size:14px; padding:9px 16px; }
+ .setrow{ font-size:15.5px; padding:14px 0; } .setrow small{ font-size:12.5px; }
+ /* overlays */
+ #modal{ max-width:620px; padding:32px 30px; border-radius:24px; }
+ #sheetwrap .bgc{ background:rgba(0,0,0,.34); }
+ #sheet{ position:absolute; left:50%; top:50%; right:auto; bottom:auto; width:min(520px,90vw); max-width:none; border-radius:22px; padding:34px 32px; box-shadow:0 24px 60px rgba(0,0,0,.28); animation:upc .22s var(--ease-out); transform:translate(-50%,-50%); }
+ @keyframes upc{ from{ transform:translate(-50%,calc(-50% + 26px)); opacity:0; } to{ transform:translate(-50%,-50%); opacity:1; } }
+ #sheet .w{ font-size:31px; } #sheet .ja{ font-size:18px; margin-top:6px; }
+ #toasts{ bottom:34px; } .toast{ font-size:15px; padding:13px 24px; }
+ .empty{ font-size:16px; padding:80px 0; }
+}
+@media(min-width:1500px){ :root{ --max:1020px; } }
 </style>
 </head>
 <body data-theme="light">
@@ -668,7 +778,7 @@ function renderLib(){
   for(const l of LVKEYS()){
     const lv=LV(l); const eps=EPS().filter(e=>e.level===l);
     const done=eps.filter(e=>EPR()[e.id]&&EPR()[e.id].done).length;
-    html+='<div class="lvhead"><span class="dot" style="background:'+lv.color+'"></span><h3>'+lv.label+' · '+lv.ja+'</h3><small>'+done+' / '+eps.length+'</small></div>';
+    html+='<div class="lvhead"><span class="dot" style="background:'+lv.color+'"></span><h3>'+lv.label+' · '+lv.ja+'</h3><small>'+done+' / '+eps.length+'</small></div><div class="eplist">';
     for(const e of eps){
       const r=EPR()[e.id]||{}; const isNext=e.id===nid;
       let st; if(r.done){ st='✅ '+(r.bestWpm?r.bestWpm+' WPM<br>':"")+'<span class="stars">'+"★".repeat(r.quizBest||0)+"☆".repeat(3-(r.quizBest||0))+'</span>'; }
@@ -678,6 +788,7 @@ function renderLib(){
         +'<div class="tt"><div class="ja">第'+e.id+'話 · '+esc(e.titleJa)+'</div><div class="sub">🎬 '+esc(e.theme)+' · '+fmt(e.words)+'語</div></div>'
         +'<div class="st">'+st+'</div></div>';
     }
+    html+='</div>';
   }
   $("view").innerHTML=html;
 }
@@ -905,7 +1016,7 @@ function renderReaderHead(){
   $("rinfo").innerHTML='<span style="color:'+lv.color+'">●</span> 第'+ep.id+'話 '+ep.emoji+' '+esc(ep.titleJa)
    +'<small>🎬 '+esc(ep.theme)+(R.fastTarget?(" · 🎯 目標 "+R.fastTarget+" WPM超え"):"")+'</small>';
 }
-function fontStep(d){ S.set.fs=Math.min(24,Math.max(15,S.set.fs+d)); save(); const st=$("story"); if(st) st.style.fontSize=S.set.fs+"px"; }
+function fontStep(d){ S.set.fs=Math.min(32,Math.max(15,S.set.fs+d)); save(); const st=$("story"); if(st) st.style.setProperty("--story-fs",S.set.fs+"px"); }
 function storyHTML(ep){
   const gl=S.set.hl? ep.glossary.map((g,i)=>({w:g.w,i})).sort((a,b)=>b.w.length-a.w.length) : [];
   let si=0;
@@ -925,7 +1036,7 @@ function renderRead(){
    '<h1 class="rtitle">'+esc(ep.titleEn)+'</h1>'
    +'<div class="rtitleja">'+esc(ep.titleJa)+'</div>'
    +(S.set.teaser?'<div class="teaserbox"><b>あらすじヒント（日本語）</b>'+esc(ep.teaser)+'</div>':"")
-   +'<div id="story" class="'+(S.set.serif?"serif":"")+'" style="font-size:'+S.set.fs+'px">'+storyHTML(ep)+'</div>'
+   +'<div id="story" class="'+(S.set.serif?"serif":"")+'" style="--story-fs:'+S.set.fs+'px">'+storyHTML(ep)+'</div>'
    +'<div style="font-size:11px;color:var(--tx2);font-weight:700;margin-top:14px;line-height:1.8">💡 下線の単語はタップで意味 · 文をタップすると音声が流れます<br>わからない所は飛ばしてOK。全体の流れを楽しもう！</div>';
   $("story").onclick=e=>{
     const g=e.target.closest(".gw");
@@ -1082,7 +1193,7 @@ function openSettings(){
      +[["light","ライト"],["sepia","セピア"],["dark","ダーク"]].map(t=>'<button class="'+(S.set.theme===t[0]?"on":"")+'" onclick="setTheme(\''+t[0]+'\',this)">'+t[1]+'</button>').join("")+'</span></div>'
    +'<div class="setrow"><span>本文の書体</span><span class="seg">'
      +'<button class="'+(S.set.serif?"on":"")+'" onclick="setSerif(true,this)">明朝</button><button class="'+(!S.set.serif?"on":"")+'" onclick="setSerif(false,this)">ゴシック</button></span></div>'
-   +'<div class="setrow"><span>文字サイズ<small>'+S.set.fs+'px</small></span><input type="range" min="15" max="24" value="'+S.set.fs+'" oninput="S.set.fs=+this.value;save();this.previousElementSibling.querySelector(\'small\').textContent=this.value+\'px\'"></div>'
+   +'<div class="setrow"><span>本文の文字サイズ<small>'+S.set.fs+'px（PCでは自動で1.2倍）</small></span><input type="range" min="15" max="32" value="'+S.set.fs+'" oninput="S.set.fs=+this.value;save();this.previousElementSibling.querySelector(\'small\').textContent=this.value+\'px（PCでは自動で1.2倍）\'"></div>'
    +'<div class="setrow"><span>英語の音声</span></div><select class="mini" style="width:100%;margin:-6px 0 8px" onchange="S.set.voice=this.value;save()">'+vsel+'</select>'
    +'<div class="setrow"><span>読み上げ速度<small>ふだんの再生速度</small></span><input type="range" min="0.5" max="1.2" step="0.05" value="'+S.set.rate+'" oninput="S.set.rate=+this.value;save()"></div>'
    +'<div class="setrow"><span>音声テスト</span><button class="btn2" onclick="speakBtn(\'Hello! Welcome to Portland. Happy reading!\')">🔊 テスト</button></div>'
